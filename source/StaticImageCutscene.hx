@@ -54,12 +54,12 @@ class StaticImageCutscene extends FlxSpriteGroup
 		
 		var cutsceneArray:Array<String> = [];
 		var cutsceneImageDirectory:String = Paths.getPreloadPath('shared/images/cutscenes/' + PlayState.SONG.song.toLowerCase());
-		if (FileSystem.exists(cutsceneImageDirectory)) 
+		if (Assets.exists(cutsceneImageDirectory)) 
 		{
-			for (file in FileSystem.readDirectory(cutsceneImageDirectory)) 
+			for (file in HSys.readDirectory(cutsceneImageDirectory)) 
 			{
 				var path = haxe.io.Path.join([cutsceneImageDirectory, file]);
-				if (!FileSystem.isDirectory(path) && file.endsWith('.png')) 
+				if (!Assets.exists(path) && file.endsWith('.png')) 
 				{
 					var check:String = file.substr(0, file.length - 4);
 					cutsceneArray.unshift(check); // reverse order for proper layering
