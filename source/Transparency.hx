@@ -1,5 +1,5 @@
 package;
-
+#if windows //monte de lixo
 @:native("HWND__") extern class HWNDStruct { }
 typedef HWND = cpp.Pointer<HWNDStruct>;
 typedef BOOL = Int;
@@ -44,3 +44,4 @@ class Transparency {
         }
     }
 }
+#end
